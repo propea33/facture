@@ -1,0 +1,105 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Create Invoice</h1>
+<form method="POST">
+    {{ form.hidden_tag() }}
+    <div class="row">
+        <div class="col-md-6">
+            <h2>From</h2>
+            <div class="form-group">
+                {{ form.from_name.label }}
+                {{ form.from_name(class="form-control") }}
+            </div>
+            <div class="form-group">
+                {{ form.from_business.label }}
+                {{ form.from_business(class="form-control") }}
+            </div>
+            <div class="form-group">
+                {{ form.from_email.label }}
+                {{ form.from_email(class="form-control") }}
+            </div>
+            <div class="form-group">
+                {{ form.from_address.label }}
+                {{ form.from_address(class="form-control") }}
+            </div>
+            <div class="form-group">
+                {{ form.from_phone.label }}
+                {{ form.from_phone(class="form-control") }}
+            </div>
+            <div class="form-group">
+                {{ form.from_gst.label }}
+                {{ form.from_gst(class="form-control") }}
+            </div>
+        </div>
+        <div class="col-md-6">
+            <h2>To</h2>
+            <div class="form-group">
+                {{ form.to_name.label }}
+                {{ form.to_name(class="form-control") }}
+            </div>
+            <div class="form-group">
+                {{ form.to_email.label }}
+                {{ form.to_email(class="form-control") }}
+            </div>
+            <div class="form-group">
+                {{ form.to_address.label }}
+                {{ form.to_address(class="form-control") }}
+            </div>
+            <div class="form-group">
+                {{ form.to_phone.label }}
+                {{ form.to_phone(class="form-control") }}
+            </div>
+            <div class="form-group">
+                {{ form.to_mobile.label }}
+                {{ form.to_mobile(class="form-control") }}
+            </div>
+            <div class="form-group">
+                {{ form.to_fax.label }}
+                {{ form.to_fax(class="form-control") }}
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="form-group">
+                {{ form.number.label }}
+                {{ form.number(class="form-control") }}
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                {{ form.terms.label }}
+                {{ form.terms(class="form-control") }}
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                {{ form.tax_rate.label }}
+                {{ form.tax_rate(class="form-control") }}
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        {{ form.description.label }}
+        {{ form.description(class="form-control") }}
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                {{ form.rate.label }}
+                {{ form.rate(class="form-control") }}
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                {{ form.quantity.label }}
+                {{ form.quantity(class="form-control") }}
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        {{ form.submit(class="btn btn-primary") }}
+    </div>
+</form>
+{% endblock %}
