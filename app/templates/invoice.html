@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-6">
+        <h2>From</h2>
+        <p>{{ invoice.from_name }}<br>
+        {{ invoice.from_business }}<br>
+        {{ invoice.from_email }}<br>
+        {{ invoice.from_address }}<br>
+        {{ invoice.from_phone }}<br>
+        GST #: {{ invoice.from_gst }}</p>
+    </div>
+    <div class="col-md-6">
+        <h2>To</h2>
+        <p>{{ invoice.to_name }}<br>
+        {{ invoice.to_email }}<br>
+        {{ invoice.to_address }}<br>
+        Phone: {{ invoice.to_phone }}<br>
+        Mobile: {{ invoice.to_mobile }}<br>
+        Fax: {{ invoice.to_fax }}</p>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-4">
+        <p><strong>Invoice Number:</strong> {{ invoice.number }}</p>
+    </div>
+    <div class="col-md-4">
+        <p><strong>Date:</strong> {{ invoice.date.strftime('%b %d, %Y') }}</p>
+    </div>
+    <div class="col-md-4">
+        <p><strong>Terms:</strong> {{ invoice.terms }}</p>
+    </div>
+</div>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Description</th>
+            <th>Rate</th>
+            <th>Quantity</th>
+            <th>Amount</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>{{ invoice.description }}</td>
+            <td>${{ "%.2f"|format(invoice.rate) }}</td>
+            <td>{{ invoice.quantity }}</td>
+            <td>${{ "%.2f"|format(subtotal) }}</td>
+        </tr>
+    </tbody>
+</table>
+<div class="row">
+    <div class="col-md-6 offset-md-6">
+        <p><strong>Subtotal:</strong> ${{ "%.2f"|format(subtotal) }}</p>
+        <p><strong>Tax ({{ invoice.tax_rate }}%):</strong> ${{ "%.2f"|format(tax) }}</p>
+        <p><strong>Total:</strong> ${{ "%.2f"|format(total) }}</p>
+        <p><strong>Balance Due:</strong> ${{ "%.2f"|format(total) }}</p>
+    </div>
+</div>
+{% endblock %}
